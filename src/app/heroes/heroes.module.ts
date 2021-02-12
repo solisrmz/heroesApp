@@ -7,13 +7,16 @@ import { HeroesHomeComponent } from './pages/heroes-home/heroes-home.component';
 import { ListadoComponent } from './pages/listado/listado.component';
 import { HeroesRoutingModule } from './heroes-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MaterialModule } from '../material.module';
+import { CardComponent } from './shared/card/card.component';
 
 @NgModule({
-  declarations: [AgregarComponent, BuscarComponent, HeroeComponent, HeroesHomeComponent, ListadoComponent],
+  declarations: [AgregarComponent, BuscarComponent, HeroeComponent, HeroesHomeComponent, ListadoComponent, CardComponent],
   imports: [
     CommonModule, 
     HeroesRoutingModule, 
-    FlexLayoutModule
+    FlexLayoutModule, 
+    MaterialModule,
   ]
 })
 export class HeroesModule { }

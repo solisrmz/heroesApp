@@ -20,7 +20,6 @@ export class ListadoComponent implements OnInit {
   allHeroes(){
     this.hservice.getHeroes().subscribe( data => {
       this.heroes = data;
-      console.log(this.heroes);
     });
   }
 

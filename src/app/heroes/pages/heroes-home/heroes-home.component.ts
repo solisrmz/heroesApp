@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Heroe } from 'src/app/interfaces/heroe';
 import { HeroesService } from '../../services/heroes.service';
+import { AuthService } from '../../../auth/services/auth.service';
+import { Auth } from '../../../auth/interfaces/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-heroes-home',
@@ -14,10 +17,14 @@ import { HeroesService } from '../../services/heroes.service';
   ]
 })
 export class HeroesHomeComponent implements OnInit {
-
   isExpanded : boolean = false;
   heroes: Heroe[] = [];
-  constructor(private hservice: HeroesService) { }
+
+  get auth(){
+    return this.authService.auth;
+  }
+
+  constructor(private hservice: HeroesService, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.allHeroes();
@@ -26,8 +33,11 @@ export class HeroesHomeComponent implements OnInit {
   allHeroes(){
     this.hservice.getHeroes().subscribe( data => {
       this.heroes = data;
-      console.log(this.heroes);
     });
   }
 
+  logout(){
+    this.authService.logout();
+    this.router.navigate(['./auth/login'])
+  }
 }

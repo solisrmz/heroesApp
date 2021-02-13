@@ -14,6 +14,7 @@ import { HeroesService } from '../../services/heroes.service';
 })
 export class HeroesHomeComponent implements OnInit {
 
+  isExpanded : boolean = false;
   heroes: Heroe[] = [];
   constructor(private hservice: HeroesService) { }
 

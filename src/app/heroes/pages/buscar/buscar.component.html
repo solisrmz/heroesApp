@@ -1,1 +1,40 @@
-<p>buscar works!</p>
+<div fxLayout="column">
+    <div>
+        <h1>Buscador de héroes</h1>
+    </div>
+    <div fxLayout="column">
+        <mat-form-field class="example-full-width">
+            <mat-label>Heroe</mat-label>
+            <input type="text" matInput placeholder="Pick one" aria-label="Number" [(ngModel)]="termino" [matAutocomplete]="auto" (input)="buscando()">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="selected( $event )">
+                <mat-option *ngFor="let heroe of heroes" [value]="heroe">
+                    {{heroe.superhero}}
+                </mat-option>
+                <mat-option value="" *ngIf="heroes.length === 0">No se encontraron resultados</mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+    </div>
+
+    <div *ngIf="heroesSeleccionado">
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="30px">
+            <div fxFlex="50">
+                <h1>{{heroesSeleccionado.superhero}} <small>{{heroesSeleccionado.alter_ego}}</small></h1>
+                <mat-divider></mat-divider>
+                <br/>
+                <img [src]="heroesSeleccionado | imagen" alt="">
+            </div>
+            <div fxFlex="50">
+                <h1>{{heroesSeleccionado.publisher}}</h1>
+                <mat-divider></mat-divider>
+                <mat-list>
+                    <mat-list-item>
+                        Primera aparición: {{heroesSeleccionado.first_appearance}}
+                    </mat-list-item>
+                    <mat-list-item>
+                        Nombre: {{heroesSeleccionado.characters}}
+                    </mat-list-item>
+                </mat-list>
+            </div>
+        </div>
+    </div>
+</div>

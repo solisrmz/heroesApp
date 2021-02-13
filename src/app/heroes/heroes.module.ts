@@ -9,14 +9,18 @@ import { HeroesRoutingModule } from './heroes-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '../material.module';
 import { CardComponent } from './shared/card/card.component';
+import { ImagenPipe } from './pipes/imagen.pipe';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AgregarComponent, BuscarComponent, HeroeComponent, HeroesHomeComponent, ListadoComponent, CardComponent],
+  declarations: [AgregarComponent, BuscarComponent, HeroeComponent, HeroesHomeComponent, ListadoComponent, CardComponent, ImagenPipe],
   imports: [
     CommonModule, 
     HeroesRoutingModule, 
     FlexLayoutModule, 
     MaterialModule,
+    FormsModule
   ]
 })
 export class HeroesModule { }

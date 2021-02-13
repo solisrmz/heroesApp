@@ -1,25 +1,27 @@
-<mat-sidenav-container fullscreen>
+<mat-sidenav-container fullscreen autosize>
     <mat-sidenav #sidenav mode="side" [opened]="true" disableClose="true">
         <mat-toolbar>
             <span>Menu</span>
         </mat-toolbar>
-        <mat-list role="list">
-            <mat-list-item role="matlistitem" routerLink="./listado" (click)="sidenav.toggle()">
-                <mat-icon mat-list-icon>list</mat-icon>
-                <h4 mat-line *ngIf="isExpanded">Lista</h4>
-            </mat-list-item>
-            <mat-list-item role="matlistitem" routerLink="./agregar" (click)="sidenav.toggle()">
-                <mat-icon mat-list-icon>label</mat-icon>
-                <h4 mat-line *ngIf="isExpanded">Agregar héroe</h4>
-            </mat-list-item>
-            <mat-list-item role="matlistitem" routerLink="./buscar" (click)="sidenav.toggle()">
-                <mat-icon mat-list-icon>search</mat-icon>
-                <h4 mat-line *ngIf="isExpanded">Buscar</h4>
-            </mat-list-item>
-        </mat-list>
+        <mat-nav-list>
+            <mat-list role="list">
+                <mat-list-item role="matlistitem" routerLink="./listado">
+                    <mat-icon mat-list-icon>list</mat-icon>
+                    <h4 mat-line *ngIf="isExpanded">Lista</h4>
+                </mat-list-item>
+                <mat-list-item role="matlistitem" routerLink="./agregar">
+                    <mat-icon mat-list-icon>label</mat-icon>
+                    <h4 mat-line *ngIf="isExpanded">Agregar héroe</h4>
+                </mat-list-item>
+                <mat-list-item role="matlistitem" routerLink="./buscar">
+                    <mat-icon mat-list-icon>search</mat-icon>
+                    <h4 mat-line *ngIf="isExpanded">Buscar</h4>
+                </mat-list-item>
+            </mat-list>
+        </mat-nav-list>
     </mat-sidenav>
     <mat-toolbar>
-        <button mat-icon-button (click)="sidenav.toggle()">
+        <button mat-icon-button (click)="isExpanded = !isExpanded">
             <mat-icon>menu</mat-icon>
         </button>
         <span class="spacer">

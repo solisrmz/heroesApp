@@ -5,7 +5,8 @@ import { HeroesService } from '../../services/heroes.service';
 @Component({
   selector: 'app-heroes-home',
   templateUrl: './heroes-home.component.html',
-  styles: [`
+  styles: [
+    `
     .container{
       margin: 10px;
     }

@@ -12,9 +12,10 @@ import { CardComponent } from './shared/card/card.component';
 import { ImagenPipe } from './pipes/imagen.pipe';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ConfirmacionComponent } from './components/confirmacion/confirmacion.component';
 
 @NgModule({
-  declarations: [AgregarComponent, BuscarComponent, HeroeComponent, HeroesHomeComponent, ListadoComponent, CardComponent, ImagenPipe],
+  declarations: [AgregarComponent, BuscarComponent, HeroeComponent, HeroesHomeComponent, ListadoComponent, CardComponent, ImagenPipe, ConfirmacionComponent],
   imports: [
     CommonModule, 
     HeroesRoutingModule, 

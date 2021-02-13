@@ -27,4 +27,19 @@ export class HeroesService {
     const url = base_url;
     return this.http.get<Heroe[]>(`${url}heroes`, {params});
   }
+
+  save(heroe: Heroe){
+    const url = base_url;
+    return this.http.post<Heroe>(`${url}heroes`, heroe);
+  }
+
+  update(heroe: Heroe){
+    const url = base_url;
+    return this.http.put<Heroe>(`${url}heroes/${heroe.id}`, heroe);
+  }
+
+  delete(id: string){
+    const url = base_url;
+    return this.http.delete(`${url}heroes/${id}`);
+  }
 }
